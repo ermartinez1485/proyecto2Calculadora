@@ -1,30 +1,19 @@
-
-
 package Clases;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Casa
  */
 public class Basica extends javax.swing.JFrame {
-    
+
     protected Calculadora cal;
-    protected String resultado;
-    protected boolean getIgual;
-    protected Double ValorAcutal;
     protected Double resul;
     protected String operacion;
     boolean nuevaOperacion = true;
-   
-    
+
     public Basica() {
         initComponents();
         cal = new Calculadora(0.0);
-        ValorAcutal = 0.0;
-        resultado = "";
         resul = 0.0;
     }
 
@@ -297,153 +286,71 @@ public class Basica extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt7ActionPerformed
-        // TODO add your handling code here:
-        Integer siete = 7;
-        resultado +=siete.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("7");
     }//GEN-LAST:event_txt7ActionPerformed
 
     private void txt0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt0ActionPerformed
-        // TODO add your handling code here:
-        
-        if (!(resultado.equals(""))) {
-            Integer cero = 0;
-            resultado += cero.toString();
-            txtValores.setText(resultado);
-        }
+        numeroPulsado("0");
     }//GEN-LAST:event_txt0ActionPerformed
 
     private void txt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt4ActionPerformed
-        // TODO add your handling code here:
-        Integer cuatro = 4;
-        resultado +=cuatro.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("4");
     }//GEN-LAST:event_txt4ActionPerformed
 
     private void txt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt8ActionPerformed
-        // TODO add your handling code here:
-        Integer ocho = 8;
-        resultado +=ocho.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("8");
     }//GEN-LAST:event_txt8ActionPerformed
 
     private void txt9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt9ActionPerformed
-        // TODO add your handling code here:
-        Integer nueve = 9;
-        resultado +=nueve.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("9");
     }//GEN-LAST:event_txt9ActionPerformed
 
     private void txt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt5ActionPerformed
-        // TODO add your handling code here:
-        Integer cinco = 5;
-        resultado +=cinco.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("5");
     }//GEN-LAST:event_txt5ActionPerformed
 
     private void txt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt6ActionPerformed
-        // TODO add your handling code here:
-        Integer seis = 6;
-        resultado +=seis.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("6");
     }//GEN-LAST:event_txt6ActionPerformed
 
     private void txt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1ActionPerformed
-        // TODO add your handling code here:
-        /*Integer uno = 1;
-        resultado +=uno.toString();
-        txtValores.setText(resultado);
-        */
-        
         numeroPulsado("1");
-        
-        
     }//GEN-LAST:event_txt1ActionPerformed
 
     private void txt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt2ActionPerformed
-        // TODO add your handling code here:
-        /*Integer dos = 2;
-        resultado +=dos.toString();
-        txtValores.setText(resultado);
-        */
         numeroPulsado("2");
     }//GEN-LAST:event_txt2ActionPerformed
 
     private void txt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt3ActionPerformed
-        // TODO add your handling code here:
-        Integer tres = 3;
-        resultado +=tres.toString();
-        txtValores.setText(resultado);
+        numeroPulsado("3");
     }//GEN-LAST:event_txt3ActionPerformed
 
     private void txtMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMasActionPerformed
-        
-        
-       /* if (getIgual) {
-            ValorAcutal = resul;
-            cal = new Calculadora(0.0);
-        }
-        char mas = '+';
-        Double valorActual = Double.parseDouble(resultado);
-        cal.agregarNumerosYOperadores(valorActual, mas);
-        cal.getListaNumeros();
-        cal.getListaOperadores();
-        resultado ="";
-        txtValores.setText(String.valueOf(mas));
-        
-                //cal.setListaNumeros(null);
-        //cal.setResultado(Double.parseDouble(resultado));
-        
-        //Double valorActual = cal.sumar(Double.parseDouble(resultado));
-        */
-        
         operacionPulsado("+");
         txtValores.setText("+");
-        
     }//GEN-LAST:event_txtMasActionPerformed
 
     private void txtLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLimpiarActionPerformed
-        // TODO add your handling code here:
-        resultado ="";
-        txtValores.setText(resultado);
-        cal.setResultado(0.0);
+        txtValores.setText("");
     }//GEN-LAST:event_txtLimpiarActionPerformed
 
     private void txtIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIgualActionPerformed
-        // TODO add your handling code here:
-        /*char igual = '=';
-        Double valorActual = Double.parseDouble(txtValores.getText().toString());
-        cal.agregarNumerosYOperadores(valorActual, igual);
-        resul = ValorAcutal + cal.sumar(cal.getListaNumeros(), cal.getListaOperadores());
-        txtValores.setText(resul.toString());
-        getIgual = true;
-        */
-        
         operacionPulsado("=");
     }//GEN-LAST:event_txtIgualActionPerformed
 
     private void txtMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMenosActionPerformed
-        char menos = '-';
-        Double valorActual = Double.parseDouble(resultado);
-        cal.agregarNumerosYOperadores(valorActual, menos);
-        resultado ="";
-        txtValores.setText(String.valueOf(menos));
+        operacionPulsado("-");
+        txtValores.setText("-");
     }//GEN-LAST:event_txtMenosActionPerformed
 
     private void txtMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMultiActionPerformed
-        char multi = '-';
-        Double valorActual = Double.parseDouble(resultado);
-        cal.agregarNumerosYOperadores(valorActual, multi);
-        resultado ="";
-        txtValores.setText(String.valueOf(multi));
+        operacionPulsado("*");
+        txtValores.setText("*");
     }//GEN-LAST:event_txtMultiActionPerformed
 
     private void txtDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDivActionPerformed
-        char div = '/';
-        Double valorActual = Double.parseDouble(resultado);
-        cal.agregarNumerosYOperadores(valorActual, div);
-        resultado ="";
-        txtValores.setText(String.valueOf(div));
+        operacionPulsado("/");
+        txtValores.setText("/");
     }//GEN-LAST:event_txtDivActionPerformed
 
     /**
@@ -480,30 +387,30 @@ public class Basica extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void operacionPulsado(String tecla) {
-		if (tecla.equals("=")) {
-			calcularResultado();
-		} else if (tecla.equals("CE")) {
-			resul = 0.0;
-			txtValores.setText("");
-			nuevaOperacion = true;
-		} else {
-			operacion = tecla;
-			if ((resul > 0) && !nuevaOperacion) {
-				calcularResultado();
-			} else {
-				resul = new Double(txtValores.getText());
-			}
-		}
 
-		nuevaOperacion = true;
-	}
-    
-    /**
-	 * Calcula el resultado y lo muestra por pantalla
-	 */
-	private void calcularResultado() {
+    private void operacionPulsado(String tecla) {
+        switch (tecla) {
+            case "=":
+                calcularResultado();
+                break;
+            case "CE":
+                resul = 0.0;
+                txtValores.setText("");
+                nuevaOperacion = true;
+                break;
+            default:
+                operacion = tecla;
+                if ((resul > 0) && !nuevaOperacion) {
+                    calcularResultado();
+                } else {
+                    resul = new Double(txtValores.getText());
+                }
+                break;
+        }
+        nuevaOperacion = true;
+    }
+
+    private void calcularResultado() {
         switch (operacion) {
             case "+":
                 resul += new Double(txtValores.getText());
@@ -518,19 +425,18 @@ public class Basica extends javax.swing.JFrame {
                 resul *= new Double(txtValores.getText());
                 break;
         }
+        txtValores.setText("" + resul);
+        operacion = "";
+    }
 
-		txtValores.setText("" + resul);
-		operacion = "";
-	}
-        
-        private void numeroPulsado(String digito) {
-		if (txtValores.getText().equals("0") || nuevaOperacion) {
-			txtValores.setText(digito);
-		} else {
-			txtValores.setText(txtValores.getText() + digito);
-		}
-		nuevaOperacion = false;
-	}
+    private void numeroPulsado(String digito) {
+        if (txtValores.getText().equals("0") || nuevaOperacion) {
+            txtValores.setText(digito);
+        } else {
+            txtValores.setText(txtValores.getText() + digito);
+        }
+        nuevaOperacion = false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnBasica;

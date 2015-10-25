@@ -16,8 +16,7 @@ import java.util.List;
 public class Calculadora {
     
     protected Double resultado;
-    protected List<Double> listaNumeros = new ArrayList<Double>();
-    protected List<Character> listaOperadores = new ArrayList<Character>();
+
 
     public Calculadora(Double resultado) {
         resultado = 0.0;
@@ -42,23 +41,7 @@ public class Calculadora {
     }
     
     public Double sumar(List<Double> listaNum, List<Character> listaOper) {
-
-        for (int i = 0; i < listaOper.size(); i++) {
-            char op = listaOper.get(i);
-
-            switch (op) {
-                case '+':
-                    resultado = listaNum.get(i) + listaNum.get(i + 1);
-                    break;
-                case '-':
-                    resultado = listaNum.get(i) - listaNum.get(i + 1);
-                    break;
-                case '=':
-                    return resultado;
-                default:
-                    System.out.println("opcion invalida");
-            }
-        }
+        
         return resultado;
     }
     
@@ -76,29 +59,4 @@ public class Calculadora {
     
         return resultado+div;
     }
-
-    public List<Double> getListaNumeros() {
-        return listaNumeros;
-    }
-
-    public void setListaNumeros(List<Double> listaNumeros) {
-        this.listaNumeros = listaNumeros;
-    }
-
-    public List<Character> getListaOperadores() {
-        return listaOperadores;
-    }
-
-    public void setListaOperadores(List<Character> listaOperadores) {
-        this.listaOperadores = listaOperadores;
-    }
-    
-    public void agregarNumerosYOperadores(Double num, char operador ){
-        this.listaNumeros.add(num);
-        this.listaOperadores.add(operador);
-        
-    }
-    
-    
-    
 }
