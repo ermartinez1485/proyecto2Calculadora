@@ -7,14 +7,11 @@ package Clases;
 public class Basica extends javax.swing.JFrame {
 
     protected Calculadora cal;
-    protected Double resul;
-    protected String operacion;
-    boolean nuevaOperacion = true;
+    
 
     public Basica() {
         initComponents();
-        cal = new Calculadora(0.0);
-        resul = 0.0;
+        cal = new Calculadora();
     }
 
     /**
@@ -394,48 +391,54 @@ public class Basica extends javax.swing.JFrame {
                 calcularResultado();
                 break;
             case "CE":
-                resul = 0.0;
+                cal.setResultado(0.0);
                 txtValores.setText("");
-                nuevaOperacion = true;
+                cal.setNuevaOperacion(true); 
                 break;
             default:
-                operacion = tecla;
-                if ((resul > 0) && !nuevaOperacion) {
+                cal.setOperacion(tecla);
+                if ((cal.getResultado() > 0) && !cal.isNuevaOperacion()) {
                     calcularResultado();
                 } else {
-                    resul = new Double(txtValores.getText());
+                    Double resul = new Double(txtValores.getText());
+                    cal.setResultado(resul);
+                    
                 }
                 break;
         }
-        nuevaOperacion = true;
+        cal.setNuevaOperacion(true);
     }
 
     private void calcularResultado() {
-        switch (operacion) {
+        switch (cal.getOperacion()) {
             case "+":
-                resul += new Double(txtValores.getText());
+                //resul += new Double(txtValores.getText());
+                cal.sumar(new Double(txtValores.getText()));
                 break;
             case "-":
-                resul -= new Double(txtValores.getText());
+                //resul -= new Double(txtValores.getText());
+                cal.restar(new Double(txtValores.getText()));
                 break;
             case "/":
-                resul /= new Double(txtValores.getText());
+                //resul /= new Double(txtValores.getText());
+                cal.dividir(new Double(txtValores.getText()));
                 break;
             case "*":
-                resul *= new Double(txtValores.getText());
+                //resul *= new Double(txtValores.getText());
+                cal.multiplicar(new Double(txtValores.getText()));
                 break;
         }
-        txtValores.setText("" + resul);
-        operacion = "";
+        txtValores.setText("" + cal.getResultado());
+        cal.setOperacion("");
     }
 
     private void numeroPulsado(String digito) {
-        if (txtValores.getText().equals("0") || nuevaOperacion) {
+        if (txtValores.getText().equals("0") || cal.isNuevaOperacion()) {
             txtValores.setText(digito);
         } else {
             txtValores.setText(txtValores.getText() + digito);
         }
-        nuevaOperacion = false;
+        cal.setNuevaOperacion(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

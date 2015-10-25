@@ -16,16 +16,16 @@ import java.util.List;
 public class Calculadora {
     
     protected Double resultado;
+    protected String operacion;
+    protected boolean nuevaOperacion;
 
 
-    public Calculadora(Double resultado) {
-        resultado = 0.0;
-        this.resultado = resultado;
+    public Calculadora() {
+        this.resultado = 0.0;
+        this.nuevaOperacion = true;
+        this.operacion = "";
     }
     
-    public Calculadora() {
-        
-    }
 
     public Double getResultado() {
         return resultado;
@@ -40,23 +40,43 @@ public class Calculadora {
         return "Calculadora{" + "resultado=" + resultado + '}';
     }
     
-    public Double sumar(List<Double> listaNum, List<Character> listaOper) {
+    public Double sumar(Double sum) {
         
-        return resultado;
+        return resultado+=sum;
     }
     
     public Double restar(Double res){
     
-        return resultado+res;
+        return resultado-=res;
     }
     
     public Double multiplicar(Double multi){
     
-        return resultado+multi;
+        return resultado*=multi;
     }
     
     public Double dividir(Double div){
     
-        return resultado+div;
+        return resultado/=div;
     }
+
+    public String getOperacion() {
+        return operacion;
+    }
+
+    public void setOperacion(String operacion) {
+        this.operacion = operacion;
+    }
+
+    public boolean isNuevaOperacion() {
+        return nuevaOperacion;
+    }
+
+    public void setNuevaOperacion(boolean nuevaOperacion) {
+        this.nuevaOperacion = nuevaOperacion;
+    }
+    
+    
+    
+    
 }
