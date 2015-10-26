@@ -15,8 +15,10 @@
                   <KeyStroke key="Ctrl+B"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Basica"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBasicaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnCientifica">
               <Properties>
@@ -102,15 +104,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="txt0" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtLimpiar" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="txtIgual" max="32767" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtDiv" min="-2" pref="61" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="txtIgual" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtDiv" min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="txtLimpiar" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -123,7 +121,7 @@
               <Component id="txtValores" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtMas" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="txtMas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txt7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txt8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txt9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -135,7 +133,7 @@
                       <Component id="txt5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="txt6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtMenos" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="txtMenos" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -144,11 +142,11 @@
                       <Component id="txt2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="txt3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtMulti" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="txtMulti" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtDiv" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="txtDiv" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txt0" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="txtIgual" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>

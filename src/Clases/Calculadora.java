@@ -75,8 +75,4 @@ public class Calculadora {
     public void setNuevaOperacion(boolean nuevaOperacion) {
         this.nuevaOperacion = nuevaOperacion;
     }
-    
-    
-    
-    
 }

@@ -1,5 +1,8 @@
 package Clases;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Casa
@@ -7,11 +10,17 @@ package Clases;
 public class Basica extends javax.swing.JFrame {
 
     protected Calculadora cal;
+    protected List<String> operadores;
     
 
     public Basica() {
         initComponents();
         cal = new Calculadora();
+        operadores = new ArrayList<String>();
+        operadores.add("+");
+        operadores.add("-");
+        operadores.add("/");
+        operadores.add("*");
     }
 
     /**
@@ -164,7 +173,11 @@ public class Basica extends javax.swing.JFrame {
 
         btnBasica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         btnBasica.setText("Basica");
-        btnBasica.setEnabled(false);
+        btnBasica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBasicaActionPerformed(evt);
+            }
+        });
         jMenu1.add(btnBasica);
 
         btnCientifica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
@@ -224,12 +237,10 @@ public class Basica extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txt0, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(txtIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -239,7 +250,7 @@ public class Basica extends javax.swing.JFrame {
                 .addComponent(txtValores, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -249,17 +260,17 @@ public class Basica extends javax.swing.JFrame {
                         .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtMulti, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMulti, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt0, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -323,12 +334,11 @@ public class Basica extends javax.swing.JFrame {
     }//GEN-LAST:event_txt3ActionPerformed
 
     private void txtMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMasActionPerformed
-        operacionPulsado("+");
-        txtValores.setText("+");
+        noOperadorRepetido("+",txtValores.getText());
     }//GEN-LAST:event_txtMasActionPerformed
 
     private void txtLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLimpiarActionPerformed
-        txtValores.setText("");
+        noOperadorRepetido("CE",txtValores.getText());
     }//GEN-LAST:event_txtLimpiarActionPerformed
 
     private void txtIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIgualActionPerformed
@@ -336,19 +346,22 @@ public class Basica extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIgualActionPerformed
 
     private void txtMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMenosActionPerformed
-        operacionPulsado("-");
-        txtValores.setText("-");
+        noOperadorRepetido("-",txtValores.getText());
     }//GEN-LAST:event_txtMenosActionPerformed
 
     private void txtMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMultiActionPerformed
-        operacionPulsado("*");
-        txtValores.setText("*");
+        noOperadorRepetido("*",txtValores.getText());
     }//GEN-LAST:event_txtMultiActionPerformed
 
     private void txtDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDivActionPerformed
-        operacionPulsado("/");
-        txtValores.setText("/");
+        noOperadorRepetido("/",txtValores.getText());
     }//GEN-LAST:event_txtDivActionPerformed
+
+    private void btnBasicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBasicaActionPerformed
+        // TODO add your handling code here:
+        cal = new Calculadora();
+        txtValores.setText("/");
+    }//GEN-LAST:event_btnBasicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,6 +397,23 @@ public class Basica extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void noOperadorRepetido(String op, String value) {
+
+        for (int i = 0; i < operadores.size(); i++) {
+            
+            for (int j = 0; j < operadores.size(); j++) {
+                if (!(operadores.get(j).equals(op))) {
+                operacionPulsado(op);
+                txtValores.setText(op);
+            }
+            }
+            if (!(operadores.get(i).equals(op))) {
+                operacionPulsado(op);
+                txtValores.setText(op);
+            }
+        }
+    }
 
     private void operacionPulsado(String tecla) {
         switch (tecla) {
@@ -402,7 +432,6 @@ public class Basica extends javax.swing.JFrame {
                 } else {
                     Double resul = new Double(txtValores.getText());
                     cal.setResultado(resul);
-                    
                 }
                 break;
         }
