@@ -21,6 +21,8 @@ public class Basica extends javax.swing.JFrame {
         operadores.add("-");
         operadores.add("/");
         operadores.add("*");
+        operadores.add("=");
+        
     }
 
     /**
@@ -338,11 +340,17 @@ public class Basica extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMasActionPerformed
 
     private void txtLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLimpiarActionPerformed
-        noOperadorRepetido("CE",txtValores.getText());
+        //noOperadorRepetido("CE",txtValores.getText());
+        cal = new Calculadora();
+        txtValores.setText("");
     }//GEN-LAST:event_txtLimpiarActionPerformed
 
     private void txtIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIgualActionPerformed
-        operacionPulsado("=");
+        //operacionPulsado("=");
+        if (operadorValido(txtValores.getText())) {
+            operacionPulsado("=");
+        }
+        //noOperadorRepetido("=",txtValores.getText());
     }//GEN-LAST:event_txtIgualActionPerformed
 
     private void txtMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMenosActionPerformed
@@ -360,7 +368,7 @@ public class Basica extends javax.swing.JFrame {
     private void btnBasicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBasicaActionPerformed
         // TODO add your handling code here:
         cal = new Calculadora();
-        txtValores.setText("/");
+        txtValores.setText("");
     }//GEN-LAST:event_btnBasicaActionPerformed
 
     /**
@@ -412,6 +420,16 @@ public class Basica extends javax.swing.JFrame {
             }
         }
     }
+    
+    private boolean operadorValido(String opV) {
+
+        for (String operador : operadores) {
+            if (operador.equals(opV)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     private void operacionPulsado(String tecla) {
         switch (tecla) {
@@ -427,7 +445,7 @@ public class Basica extends javax.swing.JFrame {
                 cal.setOperacion(tecla);
                 if ((cal.getResultado() > 0) && !cal.isNuevaOperacion()) {
                     calcularResultado();
-                } else {
+                } else if (operadorValido(txtValores.getText())){
                     Double resul = new Double(txtValores.getText());
                     cal.setResultado(resul);
                 }
