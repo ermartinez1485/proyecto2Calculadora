@@ -400,17 +400,15 @@ public class Basica extends javax.swing.JFrame {
     
     private void noOperadorRepetido(String op, String value) {
 
-        for (int i = 0; i < operadores.size(); i++) {
-            
-            for (int j = 0; j < operadores.size(); j++) {
-                if (!(operadores.get(j).equals(op))) {
-                operacionPulsado(op);
-                txtValores.setText(op);
-            }
-            }
-            if (!(operadores.get(i).equals(op))) {
-                operacionPulsado(op);
-                txtValores.setText(op);
+        if (!(value.equals(""))) {
+            for (int i = 0; i < operadores.size(); i++) {
+                String opIni = operadores.get(i);
+                for (int j = 0; j < operadores.size(); j++) {
+                    if (!(opIni.equals(op))) {
+                        operacionPulsado(op);
+                        txtValores.setText(op);
+                    }
+                }
             }
         }
     }
